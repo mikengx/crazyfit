@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Proxy PWA</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#2196F3">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+</head>
+
+<body>
+    <div class="app">
+        <header>
+            <h1>AI Proxy</h1>
+            <button id="settings-btn">⚙️</button>
+        </header>
+
+        <div id="settings" class="settings hidden">
+            <input type="text" id="api-url" placeholder="API URL" value="https://api.openai.com/v1/chat/completions">
+            <input type="password" id="api-key" placeholder="API Key (leave empty for stub mode)">
+            <input type="text" id="model" placeholder="Model" value="gpt-3.5-turbo">
+            <button id="save-settings">Save</button>
+        </div>
+
+        <div id="chat" class="chat">
+            <div class="welcome-message">
+                <h3>🤖 AI Proxy PWA</h3>
+                <p>Welcome! This app can proxy requests to any AI service.</p>
+                <p><strong>Stub mode is active</strong> - perfect for testing!</p>
+                <p>Try typing: "hello", "test", "error", or anything else.</p>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button id="send-btn">Send</button>
+        </div>
+
+        <div id="loading" class="loading hidden">🤔 Thinking...</div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
