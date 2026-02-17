@@ -7,6 +7,7 @@ class AIProxyPWA {
         this.bindEvents();
         this.registerServiceWorker();
         this.updateUI();
+        this.setupMobileKeyboardHandling();
 
         console.log('AI Proxy PWA initialized successfully');
     }
@@ -314,3 +315,42 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('error', (event) => {
     console.error('Global error:', event.error);
 });
+
+setupMobileKeyboardHandling() {
+    // Handle virtual keyboard on mobile
+    if ('visualViewport' in window) {
+        const viewport = window.visualViewport;
+
+        const handleViewportChange = () => {
+            const app = document.querySelector('.app');
+            const inputArea = document.querySelector('.input-area');
+
+            if (app && inputArea) {
+                // Calculate the difference between full height and visible height
+                const heightDiff = window.innerHeight - viewport.height;
+
+                if (heightDiff > 150) { // Virtual keyboard is likely open
+                    app.style.height = `${viewport.height}px`;
+                    inputArea.style.transform = `translateY(-${Math.max(0, heightDiff - 100)}px)`;
+                } else {
+                    app.style.height = '';
+                    inputArea.style.transform = '';
+                }
+            }
+        };
+
+        viewport.addEventListener('resize', handleViewportChange);
+        viewport.addEventListener('scroll', handleViewportChange);
+    }
+
+    // Alternative approach for older browsers
+    window.addEventListener('resize', () => {
+        const app = document.querySelector('.app');
+        if (app && window.innerHeight < 500) {
+            // Likely virtual keyboard is open
+            app.style.paddingBottom = '0';
+        } else {
+            app.style.paddingBottom = '';
+        }
+    });
+}
