@@ -1,21 +1,28 @@
 {
-    "name": "AI Proxy PWA",
-    "short_name": "AI Proxy",
-    "description": "Minimal PWA for proxying AI requests",
+    "name": "AI Fitness Trainer",
+    "short_name": "AI Trainer",
+    "description": "Personal AI gym exercise recommendations",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#2196F3",
+    "theme_color": "#9C27B0",
+    "categories": [
+        "health",
+        "fitness",
+        "lifestyle"
+    ],
     "icons": [
         {
-            "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' fill='%232196F3'/><text x='96' y='120' font-size='100' text-anchor='middle' fill='white'>🤖</text></svg>",
+            "src": "icon-192.png",
             "sizes": "192x192",
-            "type": "image/svg+xml"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
-            "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%232196F3'/><text x='256' y='320' font-size='280' text-anchor='middle' fill='white'>🤖</text></svg>",
+            "src": "icon-512.png",
             "sizes": "512x512",
-            "type": "image/svg+xml"
+            "type": "image/png",
+            "purpose": "any"
         }
     ]
 }
